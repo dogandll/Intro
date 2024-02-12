@@ -1,4 +1,6 @@
-﻿using Intro.Entities;
+﻿using Intro.Business;
+using Intro.DataAccess.Concretes;
+using Intro.Entities;
 using Intro.Entitiess;
 
 IndividualCustomer customer1 = new IndividualCustomer();
@@ -27,9 +29,12 @@ customer3.Name = "Abc";
 customer3.CustomerNumber = "123459";
 customer3.TaxNumber = "1234567898";
 
-BaseCustomer[] customers= { customer1, customer2, customer3, customer4 };
+BaseCustomer[] customers = { customer1, customer2, customer3, customer4 };
 
 foreach (var item in customers)
 {
     Console.WriteLine(item.CustomerNumber);
 }
+
+CourseManager courseManager = new CourseManager(new CourseDal());
+courseManager.GetAll();
